@@ -12,6 +12,23 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "Pixelify Sans", cursive;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(img/Patos.jpeg);
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  z-index: -1;
+  transform: scale(1.1);
 }
 
 .contenedor {
@@ -30,14 +47,13 @@ body {
 }
 
 .cielo-1 {
-  z-index: 0; 
+  z-index: 0;
   background: linear-gradient(to bottom, #72c4f8, #b9e3ff);
 }
 
-
 .cielo-2 {
-  z-index: 1; 
-  opacity: 0; 
+  z-index: 1;
+  opacity: 0;
   transition: opacity 2s linear;
 }
 
@@ -54,7 +70,7 @@ body {
 .nubes {
   position: absolute;
   width: 200%;
-  height: 100px;
+  height: 200px;
   top: 20px;
   left: 0;
   background: url(img/Nube.png) repeat-x;
@@ -66,7 +82,7 @@ body {
   position: absolute;
   width: 200%;
   height: 100px;
-  bottom: 42px;
+  bottom: 26px;
   left: 0;
   background: url(img/arbol.png) repeat-x;
   background-size: auto 100%;
@@ -212,15 +228,15 @@ body {
   background: #ff6b6b;
   color: white;
   padding: 5px 10px;
-  margin: 0 5px;
+  margin: 5px 5px;
   border-radius: 5px;
   box-shadow: 0 4px 0 #d63031;
 }
 
-/* Reemplaza tus reglas .boton-inicio y .boton-reinicio con esto */
 .boton-inicio,
 .boton-reinicio {
   margin-top: 20px;
+  margin-bottom: 30px;
   padding: 15px 40px;
   font-size: 24px;
   background: #ff6b6b;
@@ -248,7 +264,7 @@ body {
 
 .autor {
   position: absolute;
-  bottom: 15px;
+  bottom: 10px;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
 }
