@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pato-Runner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="contenedor">
+      <!--Capas de fondo-->
+      <div class="cielo cielo-1"></div>
+      <div class="cielo cielo-2"></div>
+      <div class="nubes"></div>
+      <div class="arboles"></div>
+      <div class="suelo"></div>
+
+      <!--Personaje principal-->
+      <div class="pato pato-corriendo"></div>
+
+      <!--Interfaz de juego-->
+      <div class="score-container">
+        <div class="icono-score"></div>
+        <div class="score">0</div>
+      </div>
+
+      <!--Pantalla del juego-->
+      <div class="pantalla-inicio">
+        <h1 class="titulo-juego">PATO RUNNER</h1>
+        <div class="instrucciones">
+          <p><span class="tecla">ESPACIO</span> para saltar</p>
+          <p><span class="tecla">⬇</span> para agacharse</p>
+        </div>
+        <button class="boton-inicio">¡JUGAR!</button>
+        <div class="autor">Creado por MARTINO</div>
+      </div>
+
+      <div class="game-over">
+        <h2>¡GAME OVER!</h2>
+        <p class="puntuacion-final">Púntuacion: <span>0</span></p>
+        <button class="boton-reinicio">Jugar de nuevo</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

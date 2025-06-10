@@ -1,0 +1,317 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pixelify Sans", cursive;
+}
+
+.contenedor {
+  width: 920px;
+  height: 360px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo base para ambas capas de cielo */
+.cielo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* La capa de abajo, que contiene el color actual */
+.cielo-1 {
+  z-index: 0; /* Asegura que esté detrás */
+  background: linear-gradient(to bottom, #72c4f8, #b9e3ff); /* Color inicial */
+}
+
+/* La capa de arriba, que usaremos para la transición */
+.cielo-2 {
+  z-index: 1; /* Se asegura que esté por encima de la capa 1 */
+  opacity: 0; /* Empieza totalmente transparente */
+  /* ¡LA MAGIA ESTÁ AQUÍ! Transicionamos la opacidad, no el fondo. */
+  transition: opacity 2s linear;
+}
+
+.suelo {
+  position: absolute;
+  width: 200%;
+  height: 42px;
+  bottom: 0;
+  background: url(img/Suelo.png) repeat-x;
+  background-size: auto 100%;
+  z-index: 3;
+}
+
+/* AÑADIR al CSS - faltaban los estilos para árboles y nubes */
+.nubes {
+  position: absolute;
+  width: 200%;
+  height: 100px;
+  top: 20px;
+  left: 0;
+  background: url(img/Nube.png) repeat-x;
+  background-size: contain;
+  z-index: 1;
+}
+
+.arboles {
+  position: absolute;
+  width: 200%;
+  height: 100px;
+  bottom: 42px;
+  left: 0;
+  background: url(img/arbol.png) repeat-x;
+  background-size: auto 100%;
+  z-index: 2;
+}
+
+/* Pato */
+.pato {
+  width: 45px;
+  height: 51px;
+  position: absolute;
+  bottom: 22px;
+  left: 50px;
+  z-index: 5;
+  background: url(img/PatoFrame.png);
+  background-size: 413px 52px;
+}
+
+.pato-corriendo {
+  animation: animarPato 0.8s steps(4) infinite;
+}
+
+.pato-saltando {
+  background-position-x: -200px;
+}
+
+.pato-agachado {
+  background-position-x: -250px;
+}
+
+.pato-muerto {
+  width: 51px;
+  background-position-x: -362px;
+}
+
+@keyframes animarPato {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -194px;
+  }
+}
+
+/* Obstaculos */
+.perro {
+  width: 93px;
+  height: 60px;
+  position: absolute;
+  bottom: 22px;
+  z-index: 4;
+  background: url(img/Perro.png) repeat-x;
+  animation: animarPerro 0.5s steps(4) infinite;
+  background-size: 372px 60px;
+}
+
+@keyframes animarPerro {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -372px;
+  }
+}
+
+.pajaro {
+  width: 38px;
+  height: 27px;
+  position: absolute;
+  z-index: 4;
+  background: url(img/PajaroFrame.png) repeat-x;
+  animation: animarPajaro 0.4s steps(5) infinite;
+  background-size: 190px 27px;
+}
+
+@keyframes animarPajaro {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -190px;
+  }
+}
+
+/* Interfaz */
+.score-container {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.icono-score {
+  width: 30px;
+  height: 30px;
+  background: url(img/estrella.png) no-repeat;
+  background-size: contain;
+  margin-right: 10px;
+}
+
+.score {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 #000;
+}
+
+/* Pantallas de juego */
+.pantalla-inicio {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.titulo-juego {
+  font-size: 72px;
+  color: #fff;
+  text-shadow: 4px 4px 0 #ff6b6b, 8px 8px 0 rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+}
+
+.instrucciones {
+  color: white;
+  margin: 20px 0;
+  text-align: center;
+  font-size: 18px;
+}
+
+.tecla {
+  display: inline-block;
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 5px;
+  box-shadow: 0 4px 0 #d63031;
+}
+
+/* Reemplaza tus reglas .boton-inicio y .boton-reinicio con esto */
+.boton-inicio,
+.boton-reinicio {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 24px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: "Pixelify Sans", cursive;
+  box-shadow: 0 6px 0 #d63031;
+  position: relative;
+  top: 0;
+}
+
+.boton-inicio:hover,
+.boton-reinicio:hover {
+  background: #ff5252;
+}
+
+.boton-inicio:active,
+.boton-reinicio:active {
+  top: 6px;
+  box-shadow: 0 0 0 #d63031;
+}
+
+.autor {
+  position: absolute;
+  bottom: 15px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.game-over {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.game-over h2 {
+  font-size: 64px;
+  color: #ff5252;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.puntuacion-final {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+@keyframes mostrarMensaje {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -20%);
+  }
+}
+
+.mensaje {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 24px;
+  z-index: 15;
+  animation: mostrarMensaje 2s forwards;
+  text-shadow: 2px 2px 0 black;
+}
