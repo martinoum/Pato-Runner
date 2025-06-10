@@ -76,8 +76,8 @@ function Start() {
   contenedor = document.querySelector(".contenedor");
   textoScore = document.querySelector(".score");
   pato = document.querySelector(".pato");
-  cielo1 = document.querySelector(".cielo-1"); // <-- AÑADIR ESTA LÍNEA
-  cielo2 = document.querySelector(".cielo-2"); // <-- AÑADIR ESTA LÍNEA
+  cielo1 = document.querySelector(".cielo-1"); 
+  cielo2 = document.querySelector(".cielo-2");
   document
     .querySelector(".boton-inicio")
     .addEventListener("click", IniciarJuego);
@@ -101,7 +101,6 @@ function IniciarJuego() {
   textoScore.innerText = "0";
 
   LimpiarElementosJuego();
-  // MODIFICADO: Llamamos a la función para que el cielo se reinicie a su color inicial.
   CambiarColorCielo();
 
   pato.className = "pato pato-corriendo";
@@ -157,7 +156,6 @@ function TogglePausa() {
 
 function Saltar() {
   if (gameStarted && !gameOver && !paused) {
-    // MODIFICADO: Usamos <= para permitir el salto incluso si hay imprecisiones decimales.
     if (patoPosY <= sueloY) {
       saltando = true;
       velY = impulso;
@@ -200,9 +198,7 @@ function MoverSuelo() {
 function MoverPato() {
   patoPosY += velY * deltaTime;
 
-  // Aplicar gravedad
   if (patoPosY > sueloY) {
-    // <-- LÍNEA CORREGIDA
     velY -= gravedad * deltaTime;
   } else {
     TocarSuelo();
@@ -328,14 +324,11 @@ function GanarPuntos() {
   }
 }
 
-// MODIFICADO: La función ahora es más simple.
 function AumentarDificultad() {
   gameVel *= 1.1;
   CambiarColorCielo();
-  // ELIMINADO: Ya no se muestra el mensaje de "NIVEL X".
 }
 
-// MODIFICADO: La función ya no depende de 'nivelActual'. Ahora se basa en la puntuación.
 function CambiarColorCielo() {
   const colores = [
     "linear-gradient(to bottom, #72c4f8, #b9e3ff)", // Día
@@ -345,23 +338,17 @@ function CambiarColorCielo() {
     "linear-gradient(to bottom, #e74c3c, #f39c12)", // Rojo/naranja
   ];
 
-  // Calculamos el índice del color basado en la puntuación
   const dificultadStep = Math.floor(score / 10);
   const nuevoColor = colores[dificultadStep % colores.length];
 
-  // 1. Ponemos el nuevo color en la capa de arriba (que aún es transparente)
   cielo2.style.background = nuevoColor;
 
-  // 2. Hacemos que la capa de arriba aparezca suavemente
   cielo2.style.opacity = 1;
 
-  // 3. Después de que la transición termine (2 segundos), reseteamos
   setTimeout(() => {
-    // El nuevo color pasa a ser el color de base en la capa de abajo
     cielo1.style.background = nuevoColor;
-    // Y la capa de arriba vuelve a ser transparente, lista para la próxima vez
     cielo2.style.opacity = 0;
-  }, 2000); // 2000ms = 2s, debe coincidir con la transición en CSS
+  }, 2000); 
 }
 function MostrarMensaje(texto, color) {
   const mensaje = document.createElement("div");
