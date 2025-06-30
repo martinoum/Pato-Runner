@@ -4,45 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pato-Runner</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
-    <div class="contenedor">
-      <!--Capas de fondo-->
-      <div class="cielo cielo-1"></div>
-      <div class="cielo cielo-2"></div>
-      <div class="nubes"></div>
-      <div class="arboles"></div>
-      <div class="suelo"></div>
+    <main>
+      <div class="contenedor">
+        <!--Capas de fondo-->
+        <div class="cielo cielo-1"></div>
+        <div class="cielo cielo-2"></div>
+        <div class="nubes"></div>
+        <div class="arboles"></div>
+        <div class="suelo"></div>
 
-      <!--Personaje principal-->
-      <div class="pato pato-corriendo"></div>
+        <!--Personaje principal-->
+        <div class="pato pato-corriendo"></div>
 
-      <!--Interfaz de juego-->
-      <div class="score-container">
-        <div class="icono-score"></div>
-        <div class="score">0</div>
-      </div>
-
-      <!--Pantalla del juego-->
-      <div class="pantalla-inicio">
-        <h1 class="titulo-juego">PATO RUNNER</h1>
-        <div class="instrucciones">
-          <p><span class="tecla">ESPACIO</span> para saltar</p>
-          <p><span class="tecla">⬇</span> para agacharse</p>
+        <!--Interfaz de juego-->
+        <div class="score-container">
+          <div class="icono-score"></div>
+          <div class="score">0</div>
         </div>
-        <button class="boton-inicio">¡JUGAR!</button>
-        <div class="autor">Creado por MARTINO</div>
+
+        <!--Pantalla del juego-->
+        <div class="pantalla-inicio">
+          <h1 class="titulo-juego">PATO RUNNER</h1>
+          <div class="instrucciones">
+            <p><span class="tecla">ESPACIO</span> para saltar</p>
+            <p><span class="tecla">⬇</span> para agacharse</p>
+          </div>
+          <button class="boton-inicio">¡JUGAR!</button>
+        </div>
+
+        <div class="game-over">
+          <h2>¡GAME OVER!</h2>
+          <p class="puntuacion-final">Púntuacion: <span>0</span></p>
+          <button class="boton-reinicio">Jugar de nuevo</button>
+        </div>
       </div>
 
-      <div class="game-over">
-        <h2>¡GAME OVER!</h2>
-        <p class="puntuacion-final">Púntuacion: <span>0</span></p>
-        <button class="boton-reinicio">Jugar de nuevo</button>
+      <div class="social-links">
+        <a
+          href="https://github.com/martinoum"
+          target="_blank"
+          aria-label="Perfil de GitHub"
+        >
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/martino-uvilla-morales-35b843213/"
+          target="_blank"
+          aria-label="Perfil de LinkedIn"
+        >
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
       </div>
-    </div>
-
+    </main>
     <script src="app.js"></script>
   </body>
 </html>
